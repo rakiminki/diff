@@ -1,7 +1,3 @@
-dist/
-resources/
-app/*/package-lock.json
-
 # CAP cpapp
 _out
 *.db
@@ -11,6 +7,11 @@ default-*.json
 gen/
 node_modules/
 target/
+
+# Fiori build files
+dist/
+resources/
+app/*/package-lock.json
 
 # Web IDE, App Studio
 .che/

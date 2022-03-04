@@ -1,3 +1,3 @@
 
 using from './risks/annotations';
-using from './mitigation/annotations';
+using from './mitigations/annotations';

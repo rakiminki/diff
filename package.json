@@ -9,9 +9,12 @@
         "@sap/cds": "^5",
         "@sap/xssec": "^3.2.13",
         "express": "^4",
-        "hdb": "^0.18.3"
+        "hdb": "^0.18.3",
+        "mbt": "^1.2.7",
+        "passport": "^0.5.2"
     },
     "devDependencies": {
+        "@sap/ux-specification": "^1.96.4",
         "sqlite3": "^5.0.2"
     },
     "engines": {
@@ -19,7 +22,8 @@
     },
     "scripts": {
         "start": "cds run",
-        "watch-mitigation": "cds watch --open mitigation/webapp/index.html?sap-ui-xx-viewCache=false#fe-lrop-v4",
+        "watch-risks": "cds watch --open risks/webapp/index.html?sap-ui-xx-viewCache=false#fe-lrop-v4",
+        "watch-mitigations": "cds watch --open mitigations/webapp/index.html?sap-ui-xx-viewCache=false#fe-lrop-v4",
         "undeploy": "cf undeploy cpapp --delete-services --delete-service-keys"
     },
     "eslintConfig": {
@@ -48,7 +52,8 @@
         }
     },
     "sapux": [
-        "app/risks"
+        "app/risks",
+        "app/mitigations"
     ],
     "cds": {
         "requires": {
@@ -57,7 +62,7 @@
             },
             "uaa": {
                 "kind": "xsuaa",
-                "credentials": {}
+                "creadentials": {}
             }
         },
         "hana": {

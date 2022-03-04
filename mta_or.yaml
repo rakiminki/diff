@@ -9,7 +9,6 @@ modules:
   requires:
   - name: cpapp-db
   - name: cpapp-uaa
-  - name: cpapp-logs
   provides:
   - name: srv-api
     properties:
@@ -24,7 +23,6 @@ modules:
   requires:
   - name: cpapp-db
   - name: cpapp-uaa
-  - name: cpapp-logs
   parameters:
     buildpack: nodejs_buildpack
 - name: cpapp-destinations
@@ -106,7 +104,6 @@ resources:
 - name: cpapp-db
   type: com.sap.xs.hdi-container
   parameters:
-    path: ./xs-security.json
     service: hana
     service-plan: hdi-shared
   properties:
@@ -125,7 +122,7 @@ resources:
         role-template-references:
         - $XSAPPNAME.RiskViewer
       tenant-mode: dedicated
-      xsappname: cpapp-${org}-${space}
+      xsappname: cpapp-${space}
     path: ./xs-security.json
     service: xsuaa
     service-plan: application
@@ -151,11 +148,6 @@ resources:
   parameters:
     service: html5-apps-repo
     service-plan: app-host
-- name: cpapp-logs
-  type: org.cloudfoundry.managed-service
-  parameters:
-    service: application-logs
-    service-plan: lite
 parameters:
   deploy_mode: html5-repo
   enable-parallel-deployments: true
